@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Blu Bul ($BUL) - Join the wild memecoin doodle adventure on the Sui blockchain with enhanced doodles!">
+  <meta name="description" content="Blu Bul ($BUL) - Join the wild memecoin doodle adventure on the Sui blockchain with enhanced doodles!">
   <meta name="keywords" content="Blu Bul, $BUL, memecoin, cryptocurrency, Sui blockchain, NFTs, memes">
   <title>Blu Bul - $BUL</title>
-  <link rel="icon" href="main.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="main.jpg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -22,7 +19,6 @@
       color: #2b2b2b;
       overflow-x: hidden;
     }
-
     .paper-panel {
       background: #fffef0 url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20"%3E%3Cpath d="M0 0h20v20H0z" fill="none"/%3E%3Cpath d="M5 5h10" stroke="%23d9d9d4" stroke-width="0.5" opacity="0.2"/%3E%3C/svg%3E') repeat;
       border: 3px solid #2b2b2b;
@@ -34,19 +30,10 @@
       position: relative;
       animation: doodle-float 3s infinite ease-in-out;
     }
-
     @keyframes doodle-float {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
-
     .paper-panel::before {
       content: '';
       position: absolute;
@@ -58,19 +45,14 @@
       border-radius: 12px;
       z-index: -1;
     }
-
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-family: 'Comic Neue', cursive;
       color: #2b2b2b;
       text-shadow: 1px 1px 2px #d9d9d4;
       font-weight: 700;
       position: relative;
     }
-
-    h1::after,
-    h2::after {
+    h1::after, h2::after {
       content: '✏️';
       position: absolute;
       right: -20px;
@@ -78,7 +60,6 @@
       font-size: 1.2rem;
       opacity: 0.6;
     }
-
     .doodle-img {
       border: 2px solid #2b2b2b;
       border-radius: 8px;
@@ -89,19 +70,10 @@
       max-width: 40%;
       height: auto;
     }
-
     @keyframes doodle-bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-
     .doodle-button {
       background: #ffeb3b;
       border: 2px solid #2b2b2b;
@@ -118,13 +90,11 @@
       transition: transform 0.2s, background 0.2s;
       cursor: pointer;
     }
-
     .doodle-button:disabled {
       background: #d9d9d4;
       cursor: not-allowed;
       transform: none;
     }
-
     .doodle-button::before {
       content: '⭐';
       position: absolute;
@@ -133,12 +103,10 @@
       font-size: 1rem;
       opacity: 0.5;
     }
-
     .doodle-button:hover:not(:disabled) {
       transform: scale(1.1);
       background: #ffd700;
     }
-
     .contract {
       background: #fff3cc;
       border: 2px dashed #2b2b2b;
@@ -150,7 +118,6 @@
       max-width: 90%;
       margin: 0 auto;
     }
-
     .roadmap-container {
       position: relative;
       min-height: 80vh;
@@ -159,7 +126,6 @@
       overflow: visible;
       padding-top: 80px;
     }
-
     .roadmap-item {
       background: #fffef0;
       border: 3px solid #2b2b2b;
@@ -174,7 +140,6 @@
       position: relative;
       z-index: 1;
     }
-
     .roadmap-item.active {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -182,48 +147,16 @@
       top: 80px;
       z-index: 10;
     }
-
-    .roadmap-item[data-phase="1"] {
-      transform: translateY(50px) rotate(2deg);
-    }
-
-    .roadmap-item[data-phase="2"] {
-      transform: translateY(50px) rotate(-3deg);
-    }
-
-    .roadmap-item[data-phase="3"] {
-      transform: translateY(50px) rotate(1deg);
-    }
-
-    .roadmap-item[data-phase="4"] {
-      transform: translateY(50px) rotate(-2deg);
-    }
-
-    .roadmap-item.active[data-phase="1"] {
-      transform: translateY(0) rotate(2deg);
-    }
-
-    .roadmap-item.active[data-phase="2"] {
-      transform: translateY(0) rotate(-3deg);
-    }
-
-    .roadmap-item.active[data-phase="3"] {
-      transform: translateY(0) rotate(1deg);
-    }
-
-    .roadmap-item.active[data-phase="4"] {
-      transform: translateY(0) rotate(-2deg);
-    }
-
-    .roadmap-item h3 {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .roadmap-item p {
-      font-size: 1.1rem;
-    }
-
+    .roadmap-item[data-phase="1"] { transform: translateY(50px) rotate(2deg); }
+    .roadmap-item[data-phase="2"] { transform: translateY(50px) rotate(-3deg); }
+    .roadmap-item[data-phase="3"] { transform: translateY(50px) rotate(1deg); }
+    .roadmap-item[data-phase="4"] { transform: translateY(50px) rotate(-2deg); }
+    .roadmap-item.active[data-phase="1"] { transform: translateY(0) rotate(2deg); }
+    .roadmap-item.active[data-phase="2"] { transform: translateY(0) rotate(-3deg); }
+    .roadmap-item.active[data-phase="3"] { transform: translateY(0) rotate(1deg); }
+    .roadmap-item.active[data-phase="4"] { transform: translateY(0) rotate(-2deg); }
+    .roadmap-item h3 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .roadmap-item p { font-size: 1.1rem; }
     .doodle-canvas {
       border: 2px solid #2b2b2b;
       border-radius: 8px;
@@ -234,7 +167,6 @@
       width: 100%;
       max-width: 512px;
     }
-
     .control-group {
       display: flex;
       align-items: center;
@@ -244,19 +176,18 @@
       border: 2px solid #2b2b2b;
       border-radius: 5px;
       background: #fff;
+      position: relative;
+      z-index: 10;
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease-out;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     nav {
       background: #fffef0;
       border-bottom: 2px solid #2b2b2b;
@@ -266,14 +197,12 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 0.5rem 1rem;
     }
-
     .nav-menu {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       padding: 0.75rem 0;
     }
-
     .nav-menu a {
       color: #2b2b2b;
       font-family: 'Comic Neue', cursive;
@@ -282,7 +211,6 @@
       position: relative;
       padding: 0.25rem 0.5rem;
     }
-
     .nav-menu a::after {
       content: '';
       position: absolute;
@@ -293,59 +221,61 @@
       background: #ffeb3b;
       transition: width 0.3s;
     }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
+    .nav-menu a:hover::after { width: 100%; }
     .hamburger {
       display: none;
       cursor: pointer;
       font-size: 1.5rem;
       padding: 0.5rem;
     }
-
-    #nav-toggle {
-      display: none;
-    }
-
+    #nav-toggle { display: none; }
     .text-red-500 {
       color: #ef4444;
     }
-
-    @media (max-width: 1024px) {
-      .paper-panel {
-        max-width: 100%;
-        padding: 1.25rem;
-      }
-
-      .nav-menu {
-        gap: 1rem;
-      }
-
-      .doodle-img {
-        max-height: 250px;
-      }
-
-      .roadmap-container {
-        min-height: 70vh;
-        padding-top: 60px;
-      }
-
-      .roadmap-item {
-        width: 95%;
-      }
-
-      .roadmap-item.active {
-        top: 60px;
-      }
+    /* Ensure touch-friendly controls */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      background: #ffeb3b;
+      border: 1px solid #2b2b2b;
+      border-radius: 4px;
+      outline: none;
+      touch-action: manipulation;
     }
-
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #ff3366;
+      border: 2px solid #2b2b2b;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #ff3366;
+      border: 2px solid #2b2b2b;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #ff3366;
+      cursor: pointer;
+    }
+    @media (max-width: 1024px) {
+      .paper-panel { max-width: 100%; padding: 1.25rem; }
+      .nav-menu { gap: 1rem; }
+      .doodle-img { max-height: 250px; }
+      .roadmap-container { min-height: 70vh; padding-top: 60px; }
+      .roadmap-item { width: 95%; }
+      .roadmap-item.active { top: 60px; }
+    }
     @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
+      .hamburger { display: block; }
       .nav-menu {
         display: none;
         flex-direction: column;
@@ -357,97 +287,30 @@
         border-top: 2px solid #2b2b2b;
         padding: 1rem;
       }
-
-      #nav-toggle:checked~.nav-menu {
-        display: flex;
-      }
-
-      .doodle-img {
-        max-height: 200px;
-      }
-
-      .paper-panel {
-        margin: 0.75rem;
-        padding: 1rem;
-      }
-
-      .doodle-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-
-      .roadmap-container {
-        min-height: 60vh;
-      }
-
-      .roadmap-item h3 {
-        font-size: 1.5rem;
-      }
-
-      .roadmap-item p {
-        font-size: 1rem;
-      }
-
-      .control-group {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .doodle-canvas {
-        max-width: 90%;
-      }
+      #nav-toggle:checked ~ .nav-menu { display: flex; }
+      .doodle-img { max-height: 200px; }
+      .paper-panel { margin: 0.75rem; padding: 1rem; }
+      .doodle-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+      .roadmap-container { min-height: 60vh; }
+      .roadmap-item h3 { font-size: 1.5rem; }
+      .roadmap-item p { font-size: 1rem; }
+      .control-group { flex-wrap: wrap; justify-content: center; }
+      .doodle-canvas { max-width: 90%; }
     }
-
     @media (max-width: 480px) {
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-      }
-
-      h3 {
-        font-size: 1.25rem;
-      }
-
-      .doodle-img {
-        max-height: 150px;
-      }
-
-      .paper-panel {
-        margin: 0.5rem;
-        padding: 0.75rem;
-      }
-
-      .doodle-button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-      }
-
-      .contract {
-        font-size: 0.8rem;
-        max-width: 100%;
-      }
-
-      .roadmap-item {
-        padding: 1rem;
-      }
-
-      .doodle-canvas {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .control-group {
-        margin: 0.3rem;
-        padding: 0.4rem;
-      }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.75rem; }
+      h3 { font-size: 1.25rem; }
+      .doodle-img { max-height: 150px; }
+      .paper-panel { margin: 0.5rem; padding: 0.75rem; }
+      .doodle-button { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+      .contract { font-size: 0.8rem; max-width: 100%; }
+      .roadmap-item { padding: 1rem; }
+      .doodle-canvas { max-width: 100%; height: auto; }
+      .control-group { margin: 0.3rem; padding: 0.4rem; }
     }
   </style>
 </head>
-
 <body>
   <nav>
     <input type="checkbox" id="nav-toggle" class="hidden">
@@ -468,17 +331,13 @@
     <img src="/main.jpg" alt="Blu Bul Doodle" class="doodle-img mx-auto mb-6">
     <p class="text-center text-lg mb-6">Grab your pencil and ride the $BUL wave! 🐂 27% token locked! 🔒</p>
     <div class="flex justify-center space-x-4 mb-6 flex-wrap gap-2">
-      <a href="https://raidenx.io/sui/moonbags-bul-sui-260025" target="_blank" class="doodle-button"><i
-          class="fas fa-shopping-cart"></i>Buy $BUL</a>
-      <a href="https://moonbags.io/bondingcurve/coins/0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL"
-        target="_blank" class="doodle-button"><i class="fas fa-rocket"></i>Moonbags</a>
+      <a href="https://raidenx.io/sui/moonbags-bul-sui-260025" target="_blank" class="doodle-button"><i class="fas fa-shopping-cart"></i>Buy $BUL</a>
+      <a href="https://moonbags.io/bondingcurve/coins/0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL" target="_blank" class="doodle-button"><i class="fas fa-rocket"></i>Moonbags</a>
     </div>
     <div class="text-center mb-6">
       <p class="font-bold">Contract Doodle:</p>
       <div class="contract">0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL</div>
-      <button
-        onclick="navigator.clipboard.writeText('0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL'); alert('Scribbled to your clipboard!')"
-        class="doodle-button mt-4"><i class="fas fa-copy"></i>Copy It!</button>
+      <button onclick="navigator.clipboard.writeText('0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL'); alert('Scribbled to your clipboard!')" class="doodle-button mt-4"><i class="fas fa-copy"></i>Copy It!</button>
     </div>
   </section>
 
@@ -520,10 +379,8 @@
   </section>
 
   <section id="memes" class="paper-panel fade-in">
-    <h2 class="text-4xl text-center mb-6" style="color: #ff3366; text-shadow: 2px 2px 0 #2b2b2b, 3px 3px 0 #33ccff;">
-      Meme Doodle Zone</h2>
-    <p class="text-center text-lg mb-6" style="color: #00cc99; font-family: 'Gochi Hand', cursive;">Draw your $BUL
-      doodle and Generate!</p>
+    <h2 class="text-4xl text-center mb-6" style="color: #ff3366; text-shadow: 2px 2px 0 #2b2b2b, 3px 3px 0 #33ccff;">Meme Doodle Zone</h2>
+    <p class="text-center text-lg mb-6" style="color: #00cc99; font-family: 'Gochi Hand', cursive;">Draw your $BUL doodle and Generate!</p>
     <div class="text-center mb-6 flex flex-wrap justify-center gap-2">
       <div class="control-group">
         <i class="fas fa-paint-brush text-[#ff3366]"></i>
@@ -603,8 +460,7 @@
         </div>
       </div>
       <div class="flex justify-center relative">
-        <img id="enhancedImage" src="" alt="Enhanced Doodle" class="doodle-canvas hidden"
-          style="max-width: 60%; max-height: 500px;">
+        <img id="enhancedImage" src="" alt="Enhanced Doodle" class="doodle-canvas hidden" style="max-width: 60%; max-height: 500px;">
         <div id="loadingSpinner" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <p class="text-[#ff3366] font-bold">Enhancing Doodle...</p>
         </div>
@@ -620,23 +476,19 @@
     <h2 class="text-4xl text-center mb-6">Doodle Gallery</h2>
     <p class="text-center text-lg mb-6">Check out our sick Blu Bul sketches!</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div
-        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme1.png" alt="Art 1" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #1</p>
       </div>
-      <div
-        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme2.png" alt="Art 2" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #2</p>
       </div>
-      <div
-        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme3.png" alt="Art 3" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #3</p>
       </div>
-      <div
-        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme4.png" alt="Art 4" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #4</p>
       </div>
@@ -647,10 +499,8 @@
     <h2 class="text-4xl text-center mb-6">Join the Doodle Gang</h2>
     <p class="text-center text-lg mb-6">Hang with the Blu Bul crew!</p>
     <div class="flex justify-center space-x-4 mb-6 flex-wrap gap-2">
-      <a href="https://t.me/+_EaH2D1QjmAwYmVk" target="_blank" class="doodle-button"><i
-          class="fab fa-telegram-plane"></i>Join Telegram</a>
-      <a href="https://x.com/SuiBluBull" target="_blank" class="doodle-button"><i class="fab fa-x-twitter"></i>Follow on
-        X</a>
+      <a href="https://t.me/+_EaH2D1QjmAwYmVk" target="_blank" class="doodle-button"><i class="fab fa-telegram-plane"></i>Join Telegram</a>
+      <a href="https://x.com/SuiBluBull" target="_blank" class="doodle-button"><i class="fab fa-x-twitter"></i>Follow on X</a>
     </div>
   </section>
 
@@ -658,450 +508,491 @@
     <p class="text-lg">© 2025 Blu Bul. Scribbled with 💪 and crayons!</p>
   </footer>
 
-  <script>
-    let userCanvas = null;
-    let drawHistory = [];
+<script>
+  let userCanvas = null;
+  let drawHistory = [];
 
-    window.addEventListener('load', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+  // Debounce utility function with reduced delay for mobile
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  window.addEventListener('load', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const roadmapSection = document.querySelector('#roadmap');
+    const roadmapItems = document.querySelectorAll('.roadmap-item');
+    const totalPhases = roadmapItems.length;
+    let lastScrollTop = 0;
+    let isProgrammaticScroll = false;
+
+    const updateRoadmap = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const roadmapRect = roadmapSection.getBoundingClientRect();
+      const isScrollingDown = scrollTop > lastScrollTop;
+
+      if (roadmapRect.top < window.innerHeight && roadmapRect.bottom > 0) {
+        const sectionHeight = roadmapSection.offsetHeight;
+        const scrollWithinSection = Math.max(0, window.innerHeight - roadmapRect.top);
+        const scrollProgress = scrollWithinSection / (sectionHeight + window.innerHeight);
+        let phaseIndex = Math.floor(scrollProgress * totalPhases) % totalPhases;
+
+        if (phaseIndex < 0) phaseIndex += totalPhases;
+
+        roadmapItems.forEach((item, index) => {
+          const isActive = index === phaseIndex;
+          item.classList.toggle('active', isActive);
+          item.style.opacity = isActive ? 1 : 0;
+          item.style.transform = isActive
+            ? `translateY(0) rotate(${item.dataset.phase === '1' ? '2deg' : item.dataset.phase === '2' ? '-3deg' : item.dataset.phase === '3' ? '1deg' : '-2deg'}) scale(1)`
+            : `translateY(50px) rotate(${item.dataset.phase === '1' ? '2deg' : item.dataset.phase === '2' ? '-3deg' : item.dataset.phase === '3' ? '1deg' : '-2deg'}) scale(0.95)`;
         });
-      }, { threshold: 0.1 });
 
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-      const roadmapSection = document.querySelector('#roadmap');
-      const roadmapItems = document.querySelectorAll('.roadmap-item');
-      const totalPhases = roadmapItems.length;
-      let lastScrollTop = 0;
-      let isProgrammaticScroll = false;
-
-      const updateRoadmap = () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const roadmapRect = roadmapSection.getBoundingClientRect();
-        const isScrollingDown = scrollTop > lastScrollTop;
-
-        if (roadmapRect.top < window.innerHeight && roadmapRect.bottom > 0) {
-          const sectionHeight = roadmapSection.offsetHeight;
-          const scrollWithinSection = Math.max(0, window.innerHeight - roadmapRect.top);
-          const scrollProgress = scrollWithinSection / (sectionHeight + window.innerHeight);
-          let phaseIndex = Math.floor(scrollProgress * totalPhases) % totalPhases;
-
-          if (phaseIndex < 0) phaseIndex += totalPhases;
-
-          roadmapItems.forEach((item, index) => {
-            const isActive = index === phaseIndex;
-            item.classList.toggle('active', isActive);
-            item.style.opacity = isActive ? 1 : 0;
-            item.style.transform = isActive
-              ? `translateY(0) rotate(${item.dataset.phase === '1' ? '2deg' : item.dataset.phase === '2' ? '-3deg' : item.dataset.phase === '3' ? '1deg' : '-2deg'}) scale(1)`
-              : `translateY(50px) rotate(${item.dataset.phase === '1' ? '2deg' : item.dataset.phase === '2' ? '-3deg' : item.dataset.phase === '3' ? '1deg' : '-2deg'}) scale(0.95)`;
+        if (isScrollingDown && scrollProgress >= 1) {
+          isProgrammaticScroll = true;
+          window.scrollTo({
+            top: roadmapSection.offsetTop,
+            behavior: 'instant'
           });
+        } else if (!isScrollingDown && scrollProgress <= 0 && roadmapRect.top >= 0) {
+          isProgrammaticScroll = true;
+          window.scrollTo({
+            top: roadmapSection.offsetTop + sectionHeight - window.innerHeight,
+            behavior: 'instant'
+          });
+        }
+      }
 
-          if (isScrollingDown && scrollProgress >= 1) {
-            isProgrammaticScroll = true;
-            window.scrollTo({
-              top: roadmapSection.offsetTop,
-              behavior: 'instant'
-            });
-          } else if (!isScrollingDown && scrollProgress <= 0 && roadmapRect.top >= 0) {
-            isProgrammaticScroll = true;
-            window.scrollTo({
-              top: roadmapSection.offsetTop + sectionHeight - window.innerHeight,
-              behavior: 'instant'
-            });
+      if (!isProgrammaticScroll) {
+        lastScrollTop = scrollTop;
+      }
+      isProgrammaticScroll = false;
+    };
+
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateRoadmap, 10);
+    });
+
+    updateRoadmap();
+
+    const drawingSketch = (p) => {
+      let isDrawing = false;
+      let currentColor = '#ff3366';
+      let fillColor = '#ffffff';
+      let brushSize = 3;
+      let brushType = 'standard';
+      let fillBackground = false;
+      let startX, startY;
+      let currentPath = [];
+
+      p.setup = () => {
+        userCanvas = p.createCanvas(512, 512);
+        userCanvas.parent('doodleContainer');
+        userCanvas.class('doodle-canvas');
+        p.background(fillBackground ? fillColor : 255);
+        p.strokeWeight(brushSize);
+        p.stroke(currentColor);
+        p.noFill();
+        drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
+
+        // Prevent scrolling only when touching inside the canvas
+        userCanvas.elt.addEventListener('touchmove', (e) => {
+          const touch = e.touches[0];
+          const rect = userCanvas.elt.getBoundingClientRect();
+          const touchX = touch.clientX - rect.left;
+          const touchY = touch.clientY - rect.top;
+
+          if (touchX >= 0 && touchX <= p.width && touchY >= 0 && touchY <= p.height) {
+            e.preventDefault();
           }
-        }
-
-        if (!isProgrammaticScroll) {
-          lastScrollTop = scrollTop;
-        }
-        isProgrammaticScroll = false;
+        }, { passive: false });
       };
 
-      let scrollTimeout;
-      window.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(updateRoadmap, 10);
-      });
-
-      updateRoadmap();
-
-      const drawingSketch = (p) => {
-        let isDrawing = false;
-        let currentColor = '#ff3366';
-        let fillColor = '#ffffff';
-        let brushSize = 3;
-        let brushType = 'standard';
-        let fillBackground = false;
-        let startX, startY;
-        let currentPath = [];
-
-        p.setup = () => {
-          userCanvas = p.createCanvas(512, 512);
-          userCanvas.parent('doodleContainer');
-          userCanvas.class('doodle-canvas');
-          p.background(fillBackground ? fillColor : 255);
-          p.strokeWeight(brushSize);
-          p.stroke(currentColor);
-          p.noFill();
-          drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
-
-          userCanvas.elt.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            const rect = userCanvas.elt.getBoundingClientRect();
-            const touchX = touch.clientX - rect.left;
-            const touchY = touch.clientY - rect.top;
-
-            // Check if touch is inside canvas bounds
-            if (touchX >= 0 && touchX <= p.width && touchY >= 0 && touchY <= p.height) {
-              e.preventDefault(); // Prevent scrolling
+      p.draw = () => {
+        if (isDrawing && p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
+          if (brushType === 'standard') {
+            p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+            currentPath.push({ x: p.mouseX, y: p.mouseY });
+          } else if (brushType === 'spray') {
+            for (let i = 0; i < 10; i++) {
+              let offsetX = p.random(-brushSize, brushSize);
+              let offsetY = p.random(-brushSize, brushSize);
+              p.point(p.mouseX + offsetX, p.mouseY + offsetY);
+              currentPath.push({ x: p.mouseX + offsetX, y: p.mouseY + offsetY, spray: true });
             }
-          }, { passive: false }); // Ensure preventDefault works
-        };
-
-        p.draw = () => {
-          if (isDrawing && p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
-            if (brushType === 'standard') {
-              p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
-              currentPath.push({ x: p.mouseX, y: p.mouseY });
-            } else if (brushType === 'spray') {
-              for (let i = 0; i < 10; i++) {
-                let offsetX = p.random(-brushSize, brushSize);
-                let offsetY = p.random(-brushSize, brushSize);
-                p.point(p.mouseX + offsetX, p.mouseY + offsetY);
-                currentPath.push({ x: p.mouseX + offsetX, y: p.mouseY + offsetY, spray: true });
-              }
-            } else if (brushType === 'eraser') {
-              p.stroke(fillBackground ? fillColor : 255);
-              p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
-              currentPath.push({ x: p.mouseX, y: p.mouseY });
-              p.stroke(currentColor);
-            }
-          }
-        };
-
-        p.mousePressed = () => {
-          if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
-            isDrawing = true;
-            startX = p.mouseX;
-            startY = p.mouseY;
+          } else if (brushType === 'eraser') {
+            p.stroke(fillBackground ? fillColor : 255);
+            p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+            currentPath.push({ x: p.mouseX, y: p.mouseY });
             p.stroke(currentColor);
-            p.strokeWeight(brushSize);
-            p.noFill();
-            if (brushType === 'eraser') {
-              p.stroke(fillBackground ? fillColor : 255);
-              p.strokeWeight(brushSize * 2);
-            }
-            currentPath = [{ x: startX, y: startY }];
-            drawHistory.push({
-              type: brushType,
-              color: currentColor,
-              size: brushSize,
-              path: currentPath,
-              bg: fillBackground ? fillColor : 255
-            });
           }
-        };
+        }
+      };
 
-        p.mouseReleased = () => {
-          isDrawing = false;
-          currentPath = [];
-        };
-
-        const redrawCanvas = () => {
-          p.background(drawHistory[0].color);
-          drawHistory.forEach(action => {
-            if (action.type === 'clear') {
-              p.background(action.color);
-            } else {
-              p.stroke(action.color);
-              p.strokeWeight(action.size);
-              if (action.type === 'eraser') {
-                p.stroke(action.bg);
-                p.strokeWeight(action.size * 2);
-              }
-              for (let i = 1; i < action.path.length; i++) {
-                if (!action.path[i].spray) {
-                  p.line(action.path[i - 1].x, action.path[i - 1].y, action.path[i].x, action.path[i].y);
-                } else {
-                  p.point(action.path[i].x, action.path[i].y);
-                }
-              }
-            }
-          });
+      p.mousePressed = () => {
+        if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
+          isDrawing = true;
+          startX = p.mouseX;
+          startY = p.mouseY;
           p.stroke(currentColor);
           p.strokeWeight(brushSize);
           p.noFill();
-        };
-
-        document.getElementById('drawColor').addEventListener('input', (e) => {
-          currentColor = e.target.value;
-          p.stroke(currentColor);
-        });
-
-        document.getElementById('fillColor').addEventListener('input', (e) => {
-          fillColor = e.target.value;
-          if (fillBackground) {
-            p.background(fillColor);
-            drawHistory[0].color = fillColor;
-            drawHistory.forEach(action => {
-              if (action.type === 'eraser') action.bg = fillColor;
-            });
-            redrawCanvas();
-          }
-        });
-
-        document.getElementById('fillToggle').addEventListener('change', (e) => {
-          fillBackground = e.target.checked;
-          p.background(fillBackground ? fillColor : 255);
-          drawHistory[0].color = fillBackground ? fillColor : 255;
-          drawHistory.forEach(action => {
-            if (action.type === 'eraser') action.bg = fillBackground ? fillColor : 255;
-          });
-          redrawCanvas();
-        });
-
-        document.getElementById('brushSize').addEventListener('input', (e) => {
-          brushSize = parseInt(e.target.value);
-          p.strokeWeight(brushSize);
-          if (brushType === 'eraser') p.strokeWeight(brushSize * 2);
-        });
-
-        document.getElementById('brushType').addEventListener('change', (e) => {
-          brushType = e.target.value;
           if (brushType === 'eraser') {
             p.stroke(fillBackground ? fillColor : 255);
             p.strokeWeight(brushSize * 2);
-          } else {
-            p.stroke(currentColor);
-            p.strokeWeight(brushSize);
           }
-        });
-
-        document.getElementById('clearCanvas').addEventListener('click', () => {
-          p.background(fillBackground ? fillColor : 255);
-          drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
-        });
-
-        document.getElementById('undoCanvas').addEventListener('click', () => {
-          if (drawHistory.length > 1) {
-            drawHistory.pop();
-            redrawCanvas();
-          }
-        });
+          currentPath = [{ x: startX, y: startY }];
+          drawHistory.push({
+            type: brushType,
+            color: currentColor,
+            size: brushSize,
+            path: currentPath,
+            bg: fillBackground ? fillColor : 255
+          });
+        }
       };
 
-      try {
-        new p5(drawingSketch);
-      } catch (e) {
-        console.error('Error initializing sketch:', e);
-        alert('Failed to initialize drawing canvas: ' + e.message);
-      }
+      p.mouseReleased = () => {
+        isDrawing = false;
+        currentPath = [];
+        updateEnhancedImage(false);
+      };
 
-      // Client-side doodle enhancement function
-      function enhanceDoodle(canvas, isRandom) {
-        const tempCanvas = document.createElement('canvas');
-        tempCanvas.width = canvas.width;
-        tempCanvas.height = canvas.height;
-        const ctx = tempCanvas.getContext('2d');
-        ctx.drawImage(canvas, 0, 0);
-
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
-
-        // Get enhancement settings: manual or random
-        let sharpenLevel, brightnessLevel, contrastLevel, saturationLevel, glowToggle;
-        if (isRandom) {
-          sharpenLevel = Math.random() * 2; // 0 to 2
-          brightnessLevel = Math.random() * 100 - 50; // -50 to 50
-          contrastLevel = Math.random() * 1.5 + 0.5; // 0.5 to 2
-          saturationLevel = Math.random() * 2; // 0 to 2
-          glowToggle = Math.random() > 0.5; // 50% chance
-        } else {
-          sharpenLevel = parseFloat(document.getElementById('sharpenLevel').value);
-          brightnessLevel = parseFloat(document.getElementById('brightnessLevel').value);
-          contrastLevel = parseFloat(document.getElementById('contrastLevel').value);
-          saturationLevel = parseFloat(document.getElementById('saturationLevel').value);
-          glowToggle = document.getElementById('glowToggle').checked;
+      p.touchStarted = () => {
+        if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
+          isDrawing = true;
+          startX = p.mouseX;
+          startY = p.mouseY;
+          p.stroke(currentColor);
+          p.strokeWeight(brushSize);
+          p.noFill();
+          if (brushType === 'eraser') {
+            p.stroke(fillBackground ? fillColor : 255);
+            p.strokeWeight(brushSize * 2);
+          }
+          currentPath = [{ x: startX, y: startY }];
+          drawHistory.push({
+            type: brushType,
+            color: currentColor,
+            size: brushSize,
+            path: currentPath,
+            bg: fillBackground ? fillColor : 255
+          });
         }
+        return false;
+      };
 
-        // Sharpening filter (convolution matrix)
-        const sharpenKernel = [
-          0, -1, 0,
-          -1, 5, -1,
-          0, -1, 0
-        ];
-        const weight = 1 / sharpenLevel || 1;
-        let newData = new Uint8ClampedArray(data.length);
+      p.touchEnded = () => {
+        isDrawing = false;
+        currentPath = [];
+        updateEnhancedImage(false);
+        return false;
+      };
 
-        // Apply sharpening
-        for (let y = 1; y < canvas.height - 1; y++) {
-          for (let x = 1; x < canvas.width - 1; x++) {
-            const idx = (y * canvas.width + x) * 4;
-            let r = 0, g = 0, b = 0;
-
-            for (let ky = -1; ky <= 1; ky++) {
-              for (let kx = -1; kx <= 1; kx++) {
-                const kIdx = (ky + 1) * 3 + (kx + 1);
-                const pixelIdx = ((y + ky) * canvas.width + (x + kx)) * 4;
-                r += data[pixelIdx] * sharpenKernel[kIdx] * sharpenLevel;
-                g += data[pixelIdx + 1] * sharpenKernel[kIdx] * sharpenLevel;
-                b += data[pixelIdx + 2] * sharpenKernel[kIdx] * sharpenLevel;
+      const redrawCanvas = () => {
+        p.background(drawHistory[0].color);
+        drawHistory.forEach(action => {
+          if (action.type === 'clear') {
+            p.background(action.color);
+          } else {
+            p.stroke(action.color);
+            p.strokeWeight(action.size);
+            if (action.type === 'eraser') {
+              p.stroke(action.bg);
+              p.strokeWeight(action.size * 2);
+            }
+            for (let i = 1; i < action.path.length; i++) {
+              if (!action.path[i].spray) {
+                p.line(action.path[i - 1].x, action.path[i - 1].y, action.path[i].x, action.path[i].y);
+              } else {
+                p.point(action.path[i].x, action.path[i].y);
               }
             }
-
-            newData[idx] = Math.min(255, Math.max(0, r / weight));
-            newData[idx + 1] = Math.min(255, Math.max(0, g / weight));
-            newData[idx + 2] = Math.min(255, Math.max(0, b / weight));
-            newData[idx + 3] = data[idx + 3]; // Preserve alpha
           }
+        });
+        p.stroke(currentColor);
+        p.strokeWeight(brushSize);
+        p.noFill();
+      };
+
+      document.getElementById('drawColor').addEventListener('input', (e) => {
+        currentColor = e.target.value;
+        p.stroke(currentColor);
+      });
+
+      document.getElementById('fillColor').addEventListener('input', (e) => {
+        fillColor = e.target.value;
+        if (fillBackground) {
+          p.background(fillColor);
+          drawHistory[0].color = fillColor;
+          drawHistory.forEach(action => {
+            if (action.type === 'eraser') action.bg = fillColor;
+          });
+          redrawCanvas();
+          updateEnhancedImage(false);
         }
+      });
 
-        // Apply brightness and contrast
-        for (let i = 0; i < newData.length; i += 4) {
-          newData[i] = Math.min(255, Math.max(0, newData[i] + brightnessLevel));
-          newData[i + 1] = Math.min(255, Math.max(0, newData[i + 1] + brightnessLevel));
-          newData[i + 2] = Math.min(255, Math.max(0, newData[i + 2] + brightnessLevel));
-          newData[i] = Math.min(255, Math.max(0, (newData[i] - 128) * contrastLevel + 128));
-          newData[i + 1] = Math.min(255, Math.max(0, (newData[i + 1] - 128) * contrastLevel + 128));
-          newData[i + 2] = Math.min(255, Math.max(0, (newData[i + 2] - 128) * contrastLevel + 128));
+      document.getElementById('fillToggle').addEventListener('change', (e) => {
+        fillBackground = e.target.checked;
+        p.background(fillBackground ? fillColor : 255);
+        drawHistory[0].color = fillBackground ? fillColor : 255;
+        drawHistory.forEach(action => {
+          if (action.type === 'eraser') action.bg = fillBackground ? fillColor : 255;
+        });
+        redrawCanvas();
+        updateEnhancedImage(false);
+      });
+
+      document.getElementById('brushSize').addEventListener('input', (e) => {
+        brushSize = parseInt(e.target.value);
+        p.strokeWeight(brushSize);
+        if (brushType === 'eraser') p.strokeWeight(brushSize * 2);
+      });
+
+      document.getElementById('brushType').addEventListener('change', (e) => {
+        brushType = e.target.value;
+        if (brushType === 'eraser') {
+          p.stroke(fillBackground ? fillColor : 255);
+          p.strokeWeight(brushSize * 2);
+        } else {
+          p.stroke(currentColor);
+          p.strokeWeight(brushSize);
         }
+      });
 
-        // Apply saturation
-        for (let i = 0; i < newData.length; i += 4) {
-          const r = newData[i];
-          const g = newData[i + 1];
-          const b = newData[i + 2];
-          const gray = 0.2989 * r + 0.5870 * g + 0.1140 * b;
-          newData[i] = Math.min(255, Math.max(0, gray + (r - gray) * saturationLevel));
-          newData[i + 1] = Math.min(255, Math.max(0, gray + (g - gray) * saturationLevel));
-          newData[i + 2] = Math.min(255, Math.max(0, gray + (b - gray) * saturationLevel));
+      document.getElementById('clearCanvas').addEventListener('click', () => {
+        p.background(fillBackground ? fillColor : 255);
+        drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
+        updateEnhancedImage(false);
+      });
+
+      document.getElementById('undoCanvas').addEventListener('click', () => {
+        if (drawHistory.length > 1) {
+          drawHistory.pop();
+          redrawCanvas();
+          updateEnhancedImage(false);
         }
+      });
+    };
 
-        // Apply doodle glow and outline
-        const finalData = new Uint8ClampedArray(newData.length);
-        for (let y = 1; y < canvas.height - 1; y++) {
-          for (let x = 1; x < canvas.width - 1; x++) {
-            const idx = (y * canvas.width + x) * 4;
-            const left = ((y * canvas.width + (x - 1)) * 4);
-            const right = ((y * canvas.width + (x + 1)) * 4);
-            const up = (((y - 1) * canvas.width + x) * 4);
-            const down = (((y + 1) * canvas.width + x) * 4);
+    // Client-side doodle enhancement function
+    function enhanceDoodle(canvas, isRandom) {
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
+      const ctx = tempCanvas.getContext('2d');
+      ctx.drawImage(canvas, 0, 0);
 
-            const edge = Math.abs(newData[left] - newData[right]) +
-              Math.abs(newData[up] - newData[down]) > 50 ? 1 : 0;
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
 
-            if (glowToggle && edge && newData[idx + 3] > 0) {
-              finalData[idx] = 255;     // R: #ff3366
-              finalData[idx + 1] = 51;  // G
-              finalData[idx + 2] = 102; // B
-              finalData[idx + 3] = 200; // Alpha for glow
-            } else if (edge && newData[idx + 3] > 0) {
-              finalData[idx] = 43;
-              finalData[idx + 1] = 43;
-              finalData[idx + 2] = 43;
-              finalData[idx + 3] = 255;
-            } else {
-              finalData[idx] = newData[idx];
-              finalData[idx + 1] = newData[idx + 1];
-              finalData[idx + 2] = newData[idx + 2];
-              finalData[idx + 3] = newData[idx + 3];
-            }
-          }
-        }
-
-        const enhancedImageData = new ImageData(finalData, canvas.width, canvas.height);
-        ctx.putImageData(enhancedImageData, 0, 0);
-        return tempCanvas.toDataURL('image/png');
+      let sharpenLevel, brightnessLevel, contrastLevel, saturationLevel, glowToggle;
+      if (isRandom) {
+        sharpenLevel = Math.random() * 2;
+        brightnessLevel = Math.random() * 100 - 50;
+        spellLevel = Math.random() * 2;
+        glowToggle = Math.random() > 0.5;
+      } else {
+        sharpenLevel = parseFloat(document.getElementById('sharpenLevel').value);
+        brightnessLevel = parseFloat(document.getElementById('brightnessLevel').value);
+        contrastLevel = parseFloat(document.getElementById('contrastLevel').value);
+        saturationLevel = parseFloat(document.getElementById('saturationLevel').value);
+        glowToggle = document.getElementById('glowToggle').checked;
       }
 
-      document.getElementById('generateDoodle').addEventListener('click', () => {
-        const enhanceButton = document.getElementById('generateDoodle');
-        const originalText = enhanceButton.innerHTML;
-        enhanceButton.disabled = true;
-        enhanceButton.innerHTML = '<i class="fas fa-magic text-[#ff3366]"></i> Enhancing...';
-        console.log('Enhance button clicked');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const enhancedImage = document.getElementById('enhancedImage');
-        const errorMessage = document.getElementById('errorMessage');
+      const sharpenKernel = [
+        0, -1, 0,
+        -1, 5, -1,
+        0, -1, 0
+      ];
+      const weight = sharpenLevel ? 1 / sharpenLevel : 1;
+      let newData = new Uint8ClampedArray(data.length);
 
-        loadingSpinner.classList.remove('hidden');
-        enhancedImage.classList.add('hidden');
-        errorMessage.textContent = '';
+      // Sharpen filter
+      for (let y = 1; y < canvas.height - 1; y++) {
+        for (let x = 1; x < canvas.width - 1; x++) {
+          const idx = (y * canvas.width + x) * 4;
+          let r = 0, g = 0, b = 0;
 
-        try {
-          const canvasElement = userCanvas.elt;
-          if (!canvasElement) {
-            throw new Error('Canvas not found');
+          for (let ky = -1; ky <= 1; ky++) {
+            for (let kx = -1; kx <= 1; kx++) {
+              const kIdx = (ky + 1) * 3 + (kx + 1);
+              const pixelIdx = ((y + ky) * canvas.width + (x + kx)) * 4;
+              r += data[pixelIdx] * sharpenKernel[kIdx] * sharpenLevel;
+              g += data[pixelIdx + 1] * sharpenKernel[kIdx] * sharpenLevel;
+              b += data[pixelIdx + 2] * sharpenKernel[kIdx] * sharpenLevel;
+            }
           }
-          const enhancedDataUrl = enhanceDoodle(canvasElement, false);
-          enhancedImage.src = enhancedDataUrl;
-          enhancedImage.classList.remove('hidden');
-          console.log('Doodle enhanced with manual settings');
-        } catch (err) {
-          console.error('Enhance error:', err.message);
-          errorMessage.textContent = `Error: ${err.message}`;
-        } finally {
-          loadingSpinner.classList.add('hidden');
-          enhanceButton.disabled = false;
-          enhanceButton.innerHTML = originalText;
+
+          newData[idx] = Math.min(255, Math.max(0, r / weight));
+          newData[idx + 1] = Math.min(255, Math.max(0, g / weight));
+          newData[idx + 2] = Math.min(255, Math.max(0, b / weight));
+          newData[idx + 3] = data[idx + 3];
         }
-      });
+      }
 
-      document.getElementById('randomEnhance').addEventListener('click', () => {
-        const randomButton = document.getElementById('randomEnhance');
-        const originalText = randomButton.innerHTML;
-        randomButton.disabled = true;
-        randomButton.innerHTML = '<i class="fas fa-dice text-[#ff3366]"></i> Randomizing...';
-        console.log('Random enhance button clicked');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const enhancedImage = document.getElementById('enhancedImage');
-        const errorMessage = document.getElementById('errorMessage');
+      // Brightness and Contrast
+      for (let i = 0; i < newData.length; i += 4) {
+        newData[i] = Math.min(255, Math.max(0, newData[i] + brightnessLevel));
+        newData[i + 1] = Math.min(255, Math.max(0, newData[i + 1] + brightnessLevel));
+        newData[i + 2] = Math.min(255, Math.max(0, newData[i + 2] + brightnessLevel));
+        newData[i] = Math.min(255, Math.max(0, (newData[i] - 128) * contrastLevel + 128));
+        newData[i + 1] = Math.min(255, Math.max(0, (newData[i + 1] - 128) * contrastLevel + 128));
+        newData[i + 2] = Math.min(255, Math.max(0, (newData[i + 2] - 128) * contrastLevel + 128));
+      }
 
-        loadingSpinner.classList.remove('hidden');
-        enhancedImage.classList.add('hidden');
-        errorMessage.textContent = '';
+      // Saturation
+      for (let i = 0; i < newData.length; i += 4) {
+        const r = newData[i];
+        const g = newData[i + 1];
+        const b = newData[i + 2];
+        const gray = 0.2989 * r + 0.5870 * g + 0.1140 * b;
+        newData[i] = Math.min(255, Math.max(0, gray + (r - gray) * saturationLevel));
+        newData[i + 1] = Math.min(255, Math.max(0, gray + (g - gray) * saturationLevel));
+        newData[i + 2] = Math.min(255, Math.max(0, gray + (b - gray) * saturationLevel));
+      }
 
-        try {
-          const canvasElement = userCanvas.elt;
-          if (!canvasElement) {
-            throw new Error('Canvas not found');
+      // Glow and Edge Detection
+      const finalData = new Uint8ClampedArray(newData.length);
+      for (let y = 1; y < canvas.height - 1; y++) {
+        for (let x = 1; x < canvas.width - 1; x++) {
+          const idx = (y * canvas.width + x) * 4;
+          const left = ((y * canvas.width + (x - 1)) * 4);
+          const right = ((y * canvas.width + (x + 1)) * 4);
+          const up = (((y - 1) * canvas.width + x) * 4);
+          const down = (((y + 1) * canvas.width + x) * 4);
+
+          const edge = Math.abs(newData[left] - newData[right]) +
+                       Math.abs(newData[up] - newData[down]) > 50 ? 1 : 0;
+
+          if (glowToggle && edge && newData[idx + 3] > 0) {
+            finalData[idx] = 255;
+            finalData[idx + 1] = 51;
+            finalData[idx + 2] = 102;
+            finalData[idx + 3] = 200;
+          } else if (edge && newData[idx + 3] > 0) {
+            finalData[idx] = 43;
+            finalData[idx + 1] = 43;
+            finalData[idx + 2] = 43;
+            finalData[idx + 3] = 255;
+          } else {
+            finalData[idx] = newData[idx];
+            finalData[idx + 1] = newData[idx + 1];
+            finalData[idx + 2] = newData[idx + 2];
+            finalData[idx + 3] = newData[idx + 3];
           }
-          const enhancedDataUrl = enhanceDoodle(canvasElement, true);
-          enhancedImage.src = enhancedDataUrl;
-          enhancedImage.classList.remove('hidden');
-          console.log('Doodle enhanced with random settings');
-        } catch (err) {
-          console.error('Enhance error:', err.message);
-          errorMessage.textContent = `Error: ${err.message}`;
-        } finally {
-          loadingSpinner.classList.add('hidden');
-          randomButton.disabled = false;
-          randomButton.innerHTML = originalText;
         }
-      });
+      }
 
-      document.getElementById('downloadPreview').addEventListener('click', () => {
-        const enhancedImage = document.getElementById('enhancedImage');
-        if (enhancedImage.src && !enhancedImage.classList.contains('hidden')) {
-          let link = document.createElement('a');
-          link.download = 'blu-bul-enhanced-doodle.png';
-          link.href = enhancedImage.src;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          console.log('Enhanced doodle downloaded');
-        } else {
-          console.error('No enhanced image available for download');
-          alert('No enhanced doodle available to download!');
+      const enhancedImageData = new ImageData(finalData, canvas.width, canvas.height);
+      ctx.putImageData(enhancedImageData, 0, 0);
+      return tempCanvas.toDataURL('image/png');
+    }
+
+    // Function to update enhanced image
+    const updateEnhancedImage = debounce((isRandom) => {
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const enhancedImage = document.getElementById('enhancedImage');
+      const errorMessage = document.getElementById('errorMessage');
+
+      loadingSpinner.classList.remove('hidden');
+      enhancedImage.classList.add('hidden');
+      errorMessage.textContent = '';
+
+      try {
+        const canvasElement = userCanvas.elt;
+        if (!canvasElement) {
+          throw new Error('Canvas not found');
         }
+        const enhancedDataUrl = enhanceDoodle(canvasElement, isRandom);
+        enhancedImage.src = enhancedDataUrl;
+        enhancedImage.classList.remove('hidden');
+        console.log(`Doodle enhanced with ${isRandom ? 'random' : 'manual'} settings`);
+      } catch (err) {
+        console.error('Enhance error:', err.message);
+        errorMessage.textContent = `Error: ${err.message}`;
+      } finally {
+        loadingSpinner.classList.add('hidden');
+      }
+    }, 100);
+
+    try {
+      new p5(drawingSketch);
+    } catch (e) {
+      console.error('Error initializing sketch:', e);
+      alert('Failed to initialize drawing canvas: ' + e.message);
+    }
+
+    // Event listeners for manual enhancement controls
+    const enhancementControls = [
+      'sharpenLevel',
+      'brightnessLevel',
+      'contrastLevel',
+      'saturationLevel',
+      'glowToggle'
+    ];
+
+    enhancementControls.forEach(controlId => {
+      const element = document.getElementById(controlId);
+      ['input', 'change', 'touchstart'].forEach(eventType => {
+        element.addEventListener(eventType, (e) => {
+          e.stopPropagation();
+          updateEnhancedImage(false);
+        });
       });
     });
-  </script>
-</body>
 
+    document.getElementById('generateDoodle').addEventListener('click', () => {
+      const enhanceButton = document.getElementById('generateDoodle');
+      const originalText = enhanceButton.innerHTML;
+      enhanceButton.disabled = true;
+      enhanceButton.innerHTML = '<i class="fas fa-magic text-[#ff3366]"></i> Enhancing...';
+      updateEnhancedImage(false);
+      enhanceButton.disabled = false;
+      enhanceButton.innerHTML = originalText;
+    });
+
+    document.getElementById('randomEnhance').addEventListener('click', () => {
+      const randomButton = document.getElementById('randomEnhance');
+      const originalText = randomButton.innerHTML;
+      randomButton.disabled = true;
+      randomButton.innerHTML = '<i class="fas fa-dice text-[#ff3366]"></i> Randomizing...';
+      updateEnhancedImage(true);
+      randomButton.disabled = false;
+      randomButton.innerHTML = originalText;
+    });
+
+    document.getElementById('downloadPreview').addEventListener('click', () => {
+      const enhancedImage = document.getElementById('enhancedImage');
+      if (enhancedImage.src && !enhancedImage.classList.contains('hidden')) {
+        let link = document.createElement('a');
+        link.download = 'blu-bul-enhanced-doodle.png';
+        link.href = enhancedImage.src;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        console.log('Enhanced doodle downloaded');
+      } else {
+        console.error('No enhanced image available for download');
+        alert('No enhanced doodle available to download!');
+      }
+    });
+  });
+</script>
+</body>
 </html>
