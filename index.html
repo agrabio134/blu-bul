@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Blu Bul ($BUL) - Join the wild memecoin doodle adventure on the Sui blockchain with enhanced doodles!">
+  <meta name="description"
+    content="Blu Bul ($BUL) - Join the wild memecoin doodle adventure on the Sui blockchain with enhanced doodles!">
   <meta name="keywords" content="Blu Bul, $BUL, memecoin, cryptocurrency, Sui blockchain, NFTs, memes">
   <title>Blu Bul - $BUL</title>
   <link rel="shortcut icon" href="main.jpg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap"
+    rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -19,6 +22,7 @@
       color: #2b2b2b;
       overflow-x: hidden;
     }
+
     .paper-panel {
       background: #fffef0 url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20"%3E%3Cpath d="M0 0h20v20H0z" fill="none"/%3E%3Cpath d="M5 5h10" stroke="%23d9d9d4" stroke-width="0.5" opacity="0.2"/%3E%3C/svg%3E') repeat;
       border: 3px solid #2b2b2b;
@@ -30,10 +34,19 @@
       position: relative;
       animation: doodle-float 3s infinite ease-in-out;
     }
+
     @keyframes doodle-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
+
     .paper-panel::before {
       content: '';
       position: absolute;
@@ -45,14 +58,19 @@
       border-radius: 12px;
       z-index: -1;
     }
-    h1, h2, h3 {
+
+    h1,
+    h2,
+    h3 {
       font-family: 'Comic Neue', cursive;
       color: #2b2b2b;
       text-shadow: 1px 1px 2px #d9d9d4;
       font-weight: 700;
       position: relative;
     }
-    h1::after, h2::after {
+
+    h1::after,
+    h2::after {
       content: '✏️';
       position: absolute;
       right: -20px;
@@ -60,6 +78,7 @@
       font-size: 1.2rem;
       opacity: 0.6;
     }
+
     .doodle-img {
       border: 2px solid #2b2b2b;
       border-radius: 8px;
@@ -70,10 +89,19 @@
       max-width: 40%;
       height: auto;
     }
+
     @keyframes doodle-bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
+
     .doodle-button {
       background: #ffeb3b;
       border: 2px solid #2b2b2b;
@@ -90,11 +118,13 @@
       transition: transform 0.2s, background 0.2s;
       cursor: pointer;
     }
+
     .doodle-button:disabled {
       background: #d9d9d4;
       cursor: not-allowed;
       transform: none;
     }
+
     .doodle-button::before {
       content: '⭐';
       position: absolute;
@@ -103,10 +133,12 @@
       font-size: 1rem;
       opacity: 0.5;
     }
+
     .doodle-button:hover:not(:disabled) {
       transform: scale(1.1);
       background: #ffd700;
     }
+
     .contract {
       background: #fff3cc;
       border: 2px dashed #2b2b2b;
@@ -118,6 +150,7 @@
       max-width: 90%;
       margin: 0 auto;
     }
+
     .roadmap-container {
       position: relative;
       min-height: 80vh;
@@ -126,6 +159,7 @@
       overflow: visible;
       padding-top: 80px;
     }
+
     .roadmap-item {
       background: #fffef0;
       border: 3px solid #2b2b2b;
@@ -140,6 +174,7 @@
       position: relative;
       z-index: 1;
     }
+
     .roadmap-item.active {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -147,16 +182,48 @@
       top: 80px;
       z-index: 10;
     }
-    .roadmap-item[data-phase="1"] { transform: translateY(50px) rotate(2deg); }
-    .roadmap-item[data-phase="2"] { transform: translateY(50px) rotate(-3deg); }
-    .roadmap-item[data-phase="3"] { transform: translateY(50px) rotate(1deg); }
-    .roadmap-item[data-phase="4"] { transform: translateY(50px) rotate(-2deg); }
-    .roadmap-item.active[data-phase="1"] { transform: translateY(0) rotate(2deg); }
-    .roadmap-item.active[data-phase="2"] { transform: translateY(0) rotate(-3deg); }
-    .roadmap-item.active[data-phase="3"] { transform: translateY(0) rotate(1deg); }
-    .roadmap-item.active[data-phase="4"] { transform: translateY(0) rotate(-2deg); }
-    .roadmap-item h3 { font-size: 1.75rem; margin-bottom: 0.75rem; }
-    .roadmap-item p { font-size: 1.1rem; }
+
+    .roadmap-item[data-phase="1"] {
+      transform: translateY(50px) rotate(2deg);
+    }
+
+    .roadmap-item[data-phase="2"] {
+      transform: translateY(50px) rotate(-3deg);
+    }
+
+    .roadmap-item[data-phase="3"] {
+      transform: translateY(50px) rotate(1deg);
+    }
+
+    .roadmap-item[data-phase="4"] {
+      transform: translateY(50px) rotate(-2deg);
+    }
+
+    .roadmap-item.active[data-phase="1"] {
+      transform: translateY(0) rotate(2deg);
+    }
+
+    .roadmap-item.active[data-phase="2"] {
+      transform: translateY(0) rotate(-3deg);
+    }
+
+    .roadmap-item.active[data-phase="3"] {
+      transform: translateY(0) rotate(1deg);
+    }
+
+    .roadmap-item.active[data-phase="4"] {
+      transform: translateY(0) rotate(-2deg);
+    }
+
+    .roadmap-item h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .roadmap-item p {
+      font-size: 1.1rem;
+    }
+
     .doodle-canvas {
       border: 2px solid #2b2b2b;
       border-radius: 8px;
@@ -167,6 +234,7 @@
       width: 100%;
       max-width: 512px;
     }
+
     .control-group {
       display: flex;
       align-items: center;
@@ -177,15 +245,18 @@
       border-radius: 5px;
       background: #fff;
     }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease-out;
     }
+
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     nav {
       background: #fffef0;
       border-bottom: 2px solid #2b2b2b;
@@ -195,12 +266,14 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 0.5rem 1rem;
     }
+
     .nav-menu {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       padding: 0.75rem 0;
     }
+
     .nav-menu a {
       color: #2b2b2b;
       font-family: 'Comic Neue', cursive;
@@ -209,6 +282,7 @@
       position: relative;
       padding: 0.25rem 0.5rem;
     }
+
     .nav-menu a::after {
       content: '';
       position: absolute;
@@ -219,27 +293,59 @@
       background: #ffeb3b;
       transition: width 0.3s;
     }
-    .nav-menu a:hover::after { width: 100%; }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
     .hamburger {
       display: none;
       cursor: pointer;
       font-size: 1.5rem;
       padding: 0.5rem;
     }
-    #nav-toggle { display: none; }
+
+    #nav-toggle {
+      display: none;
+    }
+
     .text-red-500 {
       color: #ef4444;
     }
+
     @media (max-width: 1024px) {
-      .paper-panel { max-width: 100%; padding: 1.25rem; }
-      .nav-menu { gap: 1rem; }
-      .doodle-img { max-height: 250px; }
-      .roadmap-container { min-height: 70vh; padding-top: 60px; }
-      .roadmap-item { width: 95%; }
-      .roadmap-item.active { top: 60px; }
+      .paper-panel {
+        max-width: 100%;
+        padding: 1.25rem;
+      }
+
+      .nav-menu {
+        gap: 1rem;
+      }
+
+      .doodle-img {
+        max-height: 250px;
+      }
+
+      .roadmap-container {
+        min-height: 70vh;
+        padding-top: 60px;
+      }
+
+      .roadmap-item {
+        width: 95%;
+      }
+
+      .roadmap-item.active {
+        top: 60px;
+      }
     }
+
     @media (max-width: 768px) {
-      .hamburger { display: block; }
+      .hamburger {
+        display: block;
+      }
+
       .nav-menu {
         display: none;
         flex-direction: column;
@@ -251,31 +357,97 @@
         border-top: 2px solid #2b2b2b;
         padding: 1rem;
       }
-      #nav-toggle:checked ~ .nav-menu { display: flex; }
-      .doodle-img { max-height: 200px; }
-      .paper-panel { margin: 0.75rem; padding: 1rem; }
-      .doodle-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-      .roadmap-container { min-height: 60vh; }
-      .roadmap-item h3 { font-size: 1.5rem; }
-      .roadmap-item p { font-size: 1rem; }
-      .control-group { flex-wrap: wrap; justify-content: center; }
-      .doodle-canvas { max-width: 90%; }
+
+      #nav-toggle:checked~.nav-menu {
+        display: flex;
+      }
+
+      .doodle-img {
+        max-height: 200px;
+      }
+
+      .paper-panel {
+        margin: 0.75rem;
+        padding: 1rem;
+      }
+
+      .doodle-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .roadmap-container {
+        min-height: 60vh;
+      }
+
+      .roadmap-item h3 {
+        font-size: 1.5rem;
+      }
+
+      .roadmap-item p {
+        font-size: 1rem;
+      }
+
+      .control-group {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .doodle-canvas {
+        max-width: 90%;
+      }
     }
+
     @media (max-width: 480px) {
-      
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.75rem; }
-      h3 { font-size: 1.25rem; }
-      .doodle-img { max-height: 150px; }
-      .paper-panel { margin: 0.5rem; padding: 0.75rem; }
-      .doodle-button { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
-      .contract { font-size: 0.8rem; max-width: 100%; }
-      .roadmap-item { padding: 1rem; }
-      .doodle-canvas { max-width: 100%; height: auto; }
-      .control-group { margin: 0.3rem; padding: 0.4rem; }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .doodle-img {
+        max-height: 150px;
+      }
+
+      .paper-panel {
+        margin: 0.5rem;
+        padding: 0.75rem;
+      }
+
+      .doodle-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .contract {
+        font-size: 0.8rem;
+        max-width: 100%;
+      }
+
+      .roadmap-item {
+        padding: 1rem;
+      }
+
+      .doodle-canvas {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .control-group {
+        margin: 0.3rem;
+        padding: 0.4rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <nav>
     <input type="checkbox" id="nav-toggle" class="hidden">
@@ -296,13 +468,17 @@
     <img src="/main.jpg" alt="Blu Bul Doodle" class="doodle-img mx-auto mb-6">
     <p class="text-center text-lg mb-6">Grab your pencil and ride the $BUL wave! 🐂 27% token locked! 🔒</p>
     <div class="flex justify-center space-x-4 mb-6 flex-wrap gap-2">
-      <a href="https://raidenx.io/sui/moonbags-bul-sui-260025" target="_blank" class="doodle-button"><i class="fas fa-shopping-cart"></i>Buy $BUL</a>
-      <a href="https://moonbags.io/bondingcurve/coins/0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL" target="_blank" class="doodle-button"><i class="fas fa-rocket"></i>Moonbags</a>
+      <a href="https://raidenx.io/sui/moonbags-bul-sui-260025" target="_blank" class="doodle-button"><i
+          class="fas fa-shopping-cart"></i>Buy $BUL</a>
+      <a href="https://moonbags.io/bondingcurve/coins/0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL"
+        target="_blank" class="doodle-button"><i class="fas fa-rocket"></i>Moonbags</a>
     </div>
     <div class="text-center mb-6">
       <p class="font-bold">Contract Doodle:</p>
       <div class="contract">0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL</div>
-      <button onclick="navigator.clipboard.writeText('0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL'); alert('Scribbled to your clipboard!')" class="doodle-button mt-4"><i class="fas fa-copy"></i>Copy It!</button>
+      <button
+        onclick="navigator.clipboard.writeText('0x1e23e826d80ba22b5c754ddc371a0a0c4b914b8ca77a6eb697c619a5ce8ddf48::bul::BUL'); alert('Scribbled to your clipboard!')"
+        class="doodle-button mt-4"><i class="fas fa-copy"></i>Copy It!</button>
     </div>
   </section>
 
@@ -344,8 +520,10 @@
   </section>
 
   <section id="memes" class="paper-panel fade-in">
-    <h2 class="text-4xl text-center mb-6" style="color: #ff3366; text-shadow: 2px 2px 0 #2b2b2b, 3px 3px 0 #33ccff;">Meme Doodle Zone</h2>
-    <p class="text-center text-lg mb-6" style="color: #00cc99; font-family: 'Gochi Hand', cursive;">Draw your $BUL doodle and Generate!</p>
+    <h2 class="text-4xl text-center mb-6" style="color: #ff3366; text-shadow: 2px 2px 0 #2b2b2b, 3px 3px 0 #33ccff;">
+      Meme Doodle Zone</h2>
+    <p class="text-center text-lg mb-6" style="color: #00cc99; font-family: 'Gochi Hand', cursive;">Draw your $BUL
+      doodle and Generate!</p>
     <div class="text-center mb-6 flex flex-wrap justify-center gap-2">
       <div class="control-group">
         <i class="fas fa-paint-brush text-[#ff3366]"></i>
@@ -425,7 +603,8 @@
         </div>
       </div>
       <div class="flex justify-center relative">
-        <img id="enhancedImage" src="" alt="Enhanced Doodle" class="doodle-canvas hidden" style="max-width: 60%; max-height: 500px;">
+        <img id="enhancedImage" src="" alt="Enhanced Doodle" class="doodle-canvas hidden"
+          style="max-width: 60%; max-height: 500px;">
         <div id="loadingSpinner" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <p class="text-[#ff3366] font-bold">Enhancing Doodle...</p>
         </div>
@@ -441,19 +620,23 @@
     <h2 class="text-4xl text-center mb-6">Doodle Gallery</h2>
     <p class="text-center text-lg mb-6">Check out our sick Blu Bul sketches!</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div
+        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme1.png" alt="Art 1" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #1</p>
       </div>
-      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div
+        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme2.png" alt="Art 2" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #2</p>
       </div>
-      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div
+        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme3.png" alt="Art 3" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #3</p>
       </div>
-      <div class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
+      <div
+        class="border-4 border-dashed border-[#ff3366] bg-[#fffef0] rounded-lg p-4 text-center shadow-[4px_4px_8px_rgba(0,0,0,0.15)] transition-transform hover:scale-105 hover:rotate-2">
         <img src="/meme4.png" alt="Art 4" class="w-full h-auto border-2 border-[#33ccff] rounded-lg rotate-1">
         <p>Sketch #4</p>
       </div>
@@ -464,8 +647,10 @@
     <h2 class="text-4xl text-center mb-6">Join the Doodle Gang</h2>
     <p class="text-center text-lg mb-6">Hang with the Blu Bul crew!</p>
     <div class="flex justify-center space-x-4 mb-6 flex-wrap gap-2">
-      <a href="https://t.me/+_EaH2D1QjmAwYmVk" target="_blank" class="doodle-button"><i class="fab fa-telegram-plane"></i>Join Telegram</a>
-      <a href="https://x.com/SuiBluBull" target="_blank" class="doodle-button"><i class="fab fa-x-twitter"></i>Follow on X</a>
+      <a href="https://t.me/+_EaH2D1QjmAwYmVk" target="_blank" class="doodle-button"><i
+          class="fab fa-telegram-plane"></i>Join Telegram</a>
+      <a href="https://x.com/SuiBluBull" target="_blank" class="doodle-button"><i class="fab fa-x-twitter"></i>Follow on
+        X</a>
     </div>
   </section>
 
@@ -564,6 +749,18 @@
           p.stroke(currentColor);
           p.noFill();
           drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
+
+          userCanvas.elt.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            const rect = userCanvas.elt.getBoundingClientRect();
+            const touchX = touch.clientX - rect.left;
+            const touchY = touch.clientY - rect.top;
+
+            // Check if touch is inside canvas bounds
+            if (touchX >= 0 && touchX <= p.width && touchY >= 0 && touchY <= p.height) {
+              e.preventDefault(); // Prevent scrolling
+            }
+          }, { passive: false }); // Ensure preventDefault works
         };
 
         p.draw = () => {
@@ -796,7 +993,7 @@
             const down = (((y + 1) * canvas.width + x) * 4);
 
             const edge = Math.abs(newData[left] - newData[right]) +
-                         Math.abs(newData[up] - newData[down]) > 50 ? 1 : 0;
+              Math.abs(newData[up] - newData[down]) > 50 ? 1 : 0;
 
             if (glowToggle && edge && newData[idx + 3] > 0) {
               finalData[idx] = 255;     // R: #ff3366
@@ -906,4 +1103,5 @@
     });
   </script>
 </body>
+
 </html>
