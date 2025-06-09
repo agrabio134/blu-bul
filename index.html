@@ -335,9 +335,14 @@
       .roadmap-item p { font-size: 1rem; }
       .control-group { flex-wrap: wrap; justify-content: center; }
       .doodle-canvas { max-width: 90%; }
-      #doodleContainer { display: none; }
-      #drawingTools { display: none; }
+      #desktopDrawingTools { display: none; }
+      #desktopDoodleContainer { display: none; }
       #openCanvasButton { display: block; margin: 1rem auto; }
+    }
+    @media (min-width: 769px) {
+      #mobileDrawingTools { display: none; }
+      #mobileCanvasContainer { display: none; }
+      #canvasModal { display: none !important; }
     }
     @media (max-width: 480px) {
       h1 { font-size: 2rem; }
@@ -425,31 +430,31 @@
   <section id="memes" class="paper-panel fade-in">
     <h2 class="text-4xl text-center mb-6" style="color: #ff3366; text-shadow: 2px 2px 0 #2b2b2b, 3px 3px 0 #33ccff;">Meme Doodle Zone</h2>
     <p class="text-center text-lg mb-6" style="color: #00cc99; font-family: 'Gochi Hand', cursive;">Draw your $BUL doodle and Generate!</p>
-    <div class="text-center mb-6 flex flex-wrap justify-center gap-2" id="drawingTools">
+    <div class="text-center mb-6 flex flex-wrap justify-center gap-2" id="desktopDrawingTools">
       <div class="control-group">
         <i class="fas fa-paint-brush text-[#ff3366]"></i>
-        <label for="drawColor" class="text-sm">Stroke Color:</label>
-        <input type="color" id="drawColor" class="color-picker" value="#ff3366">
+        <label for="desktopDrawColor" class="text-sm">Stroke Color:</label>
+        <input type="color" id="desktopDrawColor" class="color-picker" value="#ff3366">
       </div>
       <div class="control-group">
         <i class="fas fa-fill-drip text-[#ff3366]"></i>
-        <label for="fillColor" class="text-sm">Fill Color:</label>
-        <input type="color" id="fillColor" class="color-picker" value="#ffffff">
+        <label for="desktopFillColor" class="text-sm">Fill Color:</label>
+        <input type="color" id="desktopFillColor" class="color-picker" value="#ffffff">
       </div>
       <div class="control-group">
         <i class="fas fa-toggle-on text-[#ff3366]"></i>
-        <label for="fillToggle" class="text-sm">Fill Background:</label>
-        <input type="checkbox" id="fillToggle" class="mt-2">
+        <label for="desktopFillToggle" class="text-sm">Fill Background:</label>
+        <input type="checkbox" id="desktopFillToggle" class="mt-2">
       </div>
       <div class="control-group">
         <i class="fas fa-ruler text-[#ff3366]"></i>
-        <label for="brushSize" class="text-sm">Brush Size:</label>
-        <input type="range" id="brushSize" class="brush-size" min="1" max="20" value="3">
+        <label for="desktopBrushSize" class="text-sm">Brush Size:</label>
+        <input type="range" id="desktopBrushSize" class="brush-size" min="1" max="20" value="3">
       </div>
       <div class="control-group">
         <i class="fas fa-spray-can text-[#ff3366]"></i>
-        <label for="brushType" class="text-sm">Brush Type:</label>
-        <select id="brushType" class="brush-type">
+        <label for="desktopBrushType" class="text-sm">Brush Type:</label>
+        <select id="desktopBrushType" class="brush-type">
           <option value="standard">Standard</option>
           <option value="spray">Spray Paint</option>
           <option value="eraser">Eraser</option>
@@ -457,19 +462,19 @@
       </div>
       <div class="control-group">
         <i class="fas fa-undo text-[#ff3366]"></i>
-        <button id="undoCanvas" class="doodle-button">Undo</button>
+        <button id="desktopUndoCanvas" class="doodle-button">Undo</button>
       </div>
       <div class="control-group">
         <i class="fas fa-eraser text-[#ff3366]"></i>
-        <button id="clearCanvas" class="doodle-button">Clear Sketch</button>
+        <button id="desktopClearCanvas" class="doodle-button">Clear Sketch</button>
       </div>
       <div class="control-group">
         <i class="fas fa-magic text-[#ff3366]"></i>
-        <button id="generateDoodle" class="doodle-button">Generate!</button>
+        <button id="desktopGenerateDoodle" class="doodle-button">Generate!</button>
       </div>
     </div>
     <button id="openCanvasButton" class="doodle-button"><i class="fas fa-paint-brush"></i>Open Canvas</button>
-    <div id="doodleContainer"></div>
+    <div id="desktopDoodleContainer"></div>
     <div class="paper-panel fade-in mt-6" id="previewSection">
       <h3 class="text-2xl text-center mb-4">Enhanced Doodle Preview</h3>
       <p class="text-center text-lg mb-4">Check out your enhanced doodle below!</p>
@@ -556,52 +561,50 @@
   <div id="canvasModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">×</span>
-      <div id="modalCanvasContainer"></div>
-      <div class="tools-drawer" id="toolsDrawer">
-        <div class="text-center mb-6 flex flex-wrap justify-center gap-2">
-          <div class="control-group">
-            <i class="fas fa-paint-brush text-[#ff3366]"></i>
-            <label for="modalDrawColor" class="text-sm">Stroke Color:</label>
-            <input type="color" id="modalDrawColor" class="color-picker" value="#ff3366">
-          </div>
-          <div class="control-group">
-            <i class="fas fa-fill-drip text-[#ff3366]"></i>
-            <label for="modalFillColor" class="text-sm">Fill Color:</label>
-            <input type="color" id="modalFillColor" class="color-picker" value="#ffffff">
-          </div>
-          <div class="control-group">
-            <i class="fas fa-toggle-on text-[#ff3366]"></i>
-            <label for="modalFillToggle" class="text-sm">Fill Background:</label>
-            <input type="checkbox" id="modalFillToggle" class="mt-2">
-          </div>
-          <div class="control-group">
-            <i class="fas fa-ruler text-[#ff3366]"></i>
-            <label for="modalBrushSize" class="text-sm">Brush Size:</label>
-            <input type="range" id="modalBrushSize" class="brush-size" min="1" max="20" value="3">
-          </div>
-          <div class="control-group">
-            <i class="fas fa-spray-can text-[#ff3366]"></i>
-            <label for="modalBrushType" class="text-sm">Brush Type:</label>
-            <select id="modalBrushType" class="brush-type">
-              <option value="standard">Standard</option>
-              <option value="spray">Spray Paint</option>
-              <option value="eraser">Eraser</option>
-            </select>
-          </div>
-          <div class="control-group">
-            <i class="fas fa-undo text-[#ff3366]"></i>
-            <button id="modalUndoCanvas" class="doodle-button">Undo</button>
-          </div>
-          <div class="control-group">
-            <i class="fas fa-eraser text-[#ff3366]"></i>
-            <button id="modalClearCanvas" class="doodle-button">Clear Sketch</button>
-          </div>
-          <div class="control-group">
-            <i class="fas fa-magic text-[#ff3366]"></i>
-            <button id="modalGenerateDoodle" class="doodle-button">Generate!</button>
-          </div>
+      <div class="text-center mb-6 flex flex-wrap justify-center gap-2 tools-drawer" id="mobileDrawingTools">
+        <div class="control-group">
+          <i class="fas fa-paint-brush text-[#ff3366]"></i>
+          <label for="mobileDrawColor" class="text-sm">Stroke Color:</label>
+          <input type="color" id="mobileDrawColor" class="color-picker" value="#ff3366">
+        </div>
+        <div class="control-group">
+          <i class="fas fa-fill-drip text-[#ff3366]"></i>
+          <label for="mobileFillColor" class="text-sm">Fill Color:</label>
+          <input type="color" id="mobileFillColor" class="color-picker" value="#ffffff">
+        </div>
+        <div class="control-group">
+          <i class="fas fa-toggle-on text-[#ff3366]"></i>
+          <label for="mobileFillToggle" class="text-sm">Fill Background:</label>
+          <input type="checkbox" id="mobileFillToggle" class="mt-2">
+        </div>
+        <div class="control-group">
+          <i class="fas fa-ruler text-[#ff3366]"></i>
+          <label for="mobileBrushSize" class="text-sm">Brush Size:</label>
+          <input type="range" id="mobileBrushSize" class="brush-size" min="1" max="20" value="3">
+        </div>
+        <div class="control-group">
+          <i class="fas fa-spray-can text-[#ff3366]"></i>
+          <label for="mobileBrushType" class="text-sm">Brush Type:</label>
+          <select id="mobileBrushType" class="brush-type">
+            <option value="standard">Standard</option>
+            <option value="spray">Spray Paint</option>
+            <option value="eraser">Eraser</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <i class="fas fa-undo text-[#ff3366]"></i>
+          <button id="mobileUndoCanvas" class="doodle-button">Undo</button>
+        </div>
+        <div class="control-group">
+          <i class="fas fa-eraser text-[#ff3366]"></i>
+          <button id="mobileClearCanvas" class="doodle-button">Clear Sketch</button>
+        </div>
+        <div class="control-group">
+          <i class="fas fa-magic text-[#ff3366]"></i>
+          <button id="mobileGenerateDoodle" class="doodle-button">Generate!</button>
         </div>
       </div>
+      <div id="mobileCanvasContainer"></div>
       <div class="drawer-toggle" id="drawerToggle">
         <i class="fas fa-tools text-[#2b2b2b]"></i>
       </div>
@@ -609,9 +612,12 @@
   </div>
 
   <script>
-  let userCanvas = null;
-  let drawHistory = [];
-  let p5Instance = null;
+  let desktopCanvas = null;
+  let mobileCanvas = null;
+  let desktopDrawHistory = [];
+  let mobileDrawHistory = [];
+  let desktopP5Instance = null;
+  let mobileP5Instance = null;
 
   window.addEventListener('load', () => {
     const observer = new IntersectionObserver((entries) => {
@@ -685,200 +691,257 @@
     const canvasModal = document.getElementById('canvasModal');
     const closeModal = document.querySelector('.close-modal');
     const drawerToggle = document.getElementById('drawerToggle');
-    const toolsDrawer = document.getElementById('toolsDrawer');
+    const toolsDrawer = document.getElementById('mobileDrawingTools');
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
       openCanvasButton.style.display = 'block';
-      document.getElementById('doodleContainer').style.display = 'none';
-      document.getElementById('drawingTools').style.display = 'none';
+      toolsDrawer.classList.add('tools-drawer');
     } else {
       openCanvasButton.style.display = 'none';
-      document.getElementById('doodleContainer').style.display = 'block';
-      document.getElementById('drawingTools').style.display = 'flex';
+      toolsDrawer.classList.remove('tools-drawer');
     }
 
     drawerToggle.addEventListener('click', () => {
       toolsDrawer.classList.toggle('active');
     });
 
-    const drawingSketch = (p) => {
-      let isDrawing = false;
-      let currentColor = '#ff3366';
-      let fillColor = '#ffffff';
-      let brushSize = 3;
-      let brushType = 'standard';
-      let fillBackground = false;
-      let startX, startY;
-      let currentPath = [];
+    const createDrawingSketch = (isMobile) => {
+      return (p) => {
+        let isDrawing = false;
+        let currentColor = '#ff3366';
+        let fillColor = '#ffffff';
+        let brushSize = 3;
+        let brushType = 'standard';
+        let fillBackground = false;
+        let startX, startY;
+        let currentPath = [];
+        let drawHistory = isMobile ? mobileDrawHistory : desktopDrawHistory;
+        let userCanvas = isMobile ? mobileCanvas : desktopCanvas;
 
-      p.setup = () => {
-        userCanvas = p.createCanvas(512, 512);
-        userCanvas.class('doodle-canvas');
-        userCanvas.parent(isMobile ? 'modalCanvasContainer' : 'doodleContainer');
-        p.background(fillBackground ? fillColor : 255);
-        p.strokeWeight(brushSize);
-        p.stroke(currentColor);
-        p.noFill();
-        drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
-      };
-
-      p.draw = () => {
-        if (isDrawing && p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
-          if (brushType === 'standard') {
-            p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
-            currentPath.push({ x: p.mouseX, y: p.mouseY });
-          } else if (brushType === 'spray') {
-            for (let i = 0; i < 10; i++) {
-              let offsetX = p.random(-brushSize, brushSize);
-              let offsetY = p.random(-brushSize, brushSize);
-              p.point(p.mouseX + offsetX, p.mouseY + offsetY);
-              currentPath.push({ x: p.mouseX + offsetX, y: p.mouseY + offsetY, spray: true });
-            }
-          } else if (brushType === 'eraser') {
-            p.stroke(fillBackground ? fillColor : 255);
-            p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
-            currentPath.push({ x: p.mouseX, y: p.mouseY });
-            p.stroke(currentColor);
+        p.setup = () => {
+          userCanvas = p.createCanvas(512, 512);
+          userCanvas.class('doodle-canvas');
+          userCanvas.parent(isMobile ? 'mobileCanvasContainer' : 'desktopDoodleContainer');
+          p.background(fillBackground ? fillColor : 255);
+          p.strokeWeight(brushSize);
+          p.stroke(currentColor);
+          p.noFill();
+          drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
+          if (isMobile) {
+            mobileCanvas = userCanvas;
+            mobileDrawHistory = drawHistory;
+          } else {
+            desktopCanvas = userCanvas;
+            desktopDrawHistory = drawHistory;
           }
-        }
-      };
+        };
 
-      p.mousePressed = () => {
-        if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
-          isDrawing = true;
-          startX = p.mouseX;
-          startY = p.mouseY;
+        p.draw = () => {
+          if (isDrawing && p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
+            if (brushType === 'standard') {
+              p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+              currentPath.push({ x: p.mouseX, y: p.mouseY });
+            } else if (brushType === 'spray') {
+              for (let i = 0; i < 10; i++) {
+                let offsetX = p.random(-brushSize, brushSize);
+                let offsetY = p.random(-brushSize, brushSize);
+                p.point(p.mouseX + offsetX, p.mouseY + offsetY);
+                currentPath.push({ x: p.mouseX + offsetX, y: p.mouseY + offsetY, spray: true });
+              }
+            } else if (brushType === 'eraser') {
+              p.stroke(fillBackground ? fillColor : 255);
+              p.line(p.pmouseX, p.pmouseY, p.mouseX, p.mouseY);
+              currentPath.push({ x: p.mouseX, y: p.mouseY });
+              p.stroke(currentColor);
+            }
+          }
+        };
+
+        p.mousePressed = () => {
+          if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
+            isDrawing = true;
+            startX = p.mouseX;
+            startY = p.mouseY;
+            p.stroke(currentColor);
+            p.strokeWeight(brushSize);
+            p.noFill();
+            if (brushType === 'eraser') {
+              p.stroke(fillBackground ? fillColor : 255);
+              p.strokeWeight(brushSize * 2);
+            }
+            currentPath = [{ x: startX, y: startY }];
+            drawHistory.push({
+              type: brushType,
+              color: currentColor,
+              size: brushSize,
+              path: currentPath,
+              bg: fillBackground ? fillColor : 255
+            });
+          }
+        };
+
+        p.mouseReleased = () => {
+          isDrawing = false;
+          currentPath = [];
+        };
+
+        const redrawCanvas = () => {
+          p.background(drawHistory[0].color);
+          drawHistory.forEach(action => {
+            if (action.type === 'clear') {
+              p.background(action.color);
+            } else {
+              p.stroke(action.color);
+              p.strokeWeight(action.size);
+              if (action.type === 'eraser') {
+                p.stroke(action.bg);
+                p.strokeWeight(action.size * 2);
+              }
+              for (let i = 1; i < action.path.length; i++) {
+                if (!action.path[i].spray) {
+                  p.line(action.path[i - 1].x, action.path[i - 1].y, action.path[i].x, action.path[i].y);
+                } else {
+                  p.point(action.path[i].x, action.path[i].y);
+                }
+              }
+            }
+          });
           p.stroke(currentColor);
           p.strokeWeight(brushSize);
           p.noFill();
-          if (brushType === 'eraser') {
-            p.stroke(fillBackground ? fillColor : 255);
-            p.strokeWeight(brushSize * 2);
-          }
-          currentPath = [{ x: startX, y: startY }];
-          drawHistory.push({
-            type: brushType,
-            color: currentColor,
-            size: brushSize,
-            path: currentPath,
-            bg: fillBackground ? fillColor : 255
+        };
+
+        const setupEventListeners = (prefix) => {
+          document.getElementById(`${prefix}DrawColor`).addEventListener('input', (e) => {
+            currentColor = e.target.value;
+            p.stroke(currentColor);
           });
-        }
-      };
 
-      p.mouseReleased = () => {
-        isDrawing = false;
-        currentPath = [];
-      };
-
-      const redrawCanvas = () => {
-        p.background(drawHistory[0].color);
-        drawHistory.forEach(action => {
-          if (action.type === 'clear') {
-            p.background(action.color);
-          } else {
-            p.stroke(action.color);
-            p.strokeWeight(action.size);
-            if (action.type === 'eraser') {
-              p.stroke(action.bg);
-              p.strokeWeight(action.size * 2);
+          document.getElementById(`${prefix}FillColor`).addEventListener('input', (e) => {
+            fillColor = e.target.value;
+            if (fillBackground) {
+              p.background(fillColor);
+              drawHistory[0].color = fillColor;
+              drawHistory.forEach(action => {
+                if (action.type === 'eraser') action.bg = fillColor;
+              });
+              redrawCanvas();
             }
-            for (let i = 1; i < action.path.length; i++) {
-              if (!action.path[i].spray) {
-                p.line(action.path[i - 1].x, action.path[i - 1].y, action.path[i].x, action.path[i].y);
-              } else {
-                p.point(action.path[i].x, action.path[i].y);
-              }
-            }
-          }
-        });
-        p.stroke(currentColor);
-        p.strokeWeight(brushSize);
-        p.noFill();
-      };
+          });
 
-      const setupEventListeners = (prefix) => {
-        document.getElementById(`${prefix}DrawColor`).addEventListener('input', (e) => {
-          currentColor = e.target.value;
-          p.stroke(currentColor);
-        });
-
-        document.getElementById(`${prefix}FillColor`).addEventListener('input', (e) => {
-          fillColor = e.target.value;
-          if (fillBackground) {
-            p.background(fillColor);
-            drawHistory[0].color = fillColor;
+          document.getElementById(`${prefix}FillToggle`).addEventListener('change', (e) => {
+            fillBackground = e.target.checked;
+            p.background(fillBackground ? fillColor : 255);
+            drawHistory[0].color = fillBackground ? fillColor : 255;
             drawHistory.forEach(action => {
-              if (action.type === 'eraser') action.bg = fillColor;
+              if (action.type === 'eraser') action.bg = fillBackground ? fillColor : 255;
             });
             redrawCanvas();
-          }
-        });
-
-        document.getElementById(`${prefix}FillToggle`).addEventListener('change', (e) => {
-          fillBackground = e.target.checked;
-          p.background(fillBackground ? fillColor : 255);
-          drawHistory[0].color = fillBackground ? fillColor : 255;
-          drawHistory.forEach(action => {
-            if (action.type === 'eraser') action.bg = fillBackground ? fillColor : 255;
           });
-          redrawCanvas();
-        });
 
-        document.getElementById(`${prefix}BrushSize`).addEventListener('input', (e) => {
-          brushSize = parseInt(e.target.value);
-          p.strokeWeight(brushSize);
-          if (brushType === 'eraser') p.strokeWeight(brushSize * 2);
-        });
-
-        document.getElementById(`${prefix}BrushType`).addEventListener('change', (e) => {
-          brushType = e.target.value;
-          if (brushType === 'eraser') {
-            p.stroke(fillBackground ? fillColor : 255);
-            p.strokeWeight(brushSize * 2);
-          } else {
-            p.stroke(currentColor);
+          document.getElementById(`${prefix}BrushSize`).addEventListener('input', (e) => {
+            brushSize = parseInt(e.target.value);
             p.strokeWeight(brushSize);
-          }
-        });
+            if (brushType === 'eraser') p.strokeWeight(brushSize * 2);
+          });
 
-        document.getElementById(`${prefix}ClearCanvas`).addEventListener('click', () => {
-          p.background(fillBackground ? fillColor : 255);
-          drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
-        });
+          document.getElementById(`${prefix}BrushType`).addEventListener('change', (e) => {
+            brushType = e.target.value;
+            if (brushType === 'eraser') {
+              p.stroke(fillBackground ? fillColor : 255);
+              p.strokeWeight(brushSize * 2);
+            } else {
+              p.stroke(currentColor);
+              p.strokeWeight(brushSize);
+            }
+          });
 
-        document.getElementById(`${prefix}UndoCanvas`).addEventListener('click', () => {
-          if (drawHistory.length > 1) {
-            drawHistory.pop();
-            redrawCanvas();
-          }
-        });
+          document.getElementById(`${prefix}ClearCanvas`).addEventListener('click', () => {
+            p.background(fillBackground ? fillColor : 255);
+            drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
+            if (isMobile) mobileDrawHistory = drawHistory;
+            else desktopDrawHistory = drawHistory;
+          });
+
+          document.getElementById(`${prefix}UndoCanvas`).addEventListener('click', () => {
+            if (drawHistory.length > 1) {
+              drawHistory.pop();
+              redrawCanvas();
+              if (isMobile) mobileDrawHistory = drawHistory;
+              else desktopDrawHistory = drawHistory;
+            }
+          });
+
+          document.getElementById(`${prefix}GenerateDoodle`).addEventListener('click', () => {
+            const enhanceButton = document.getElementById(`${prefix}GenerateDoodle`);
+            const originalText = enhanceButton.innerHTML;
+            enhanceButton.disabled = true;
+            enhanceButton.innerHTML = '<i class="fas fa-magic text-[#ff3366]"></i> Enhancing...';
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const enhancedImage = document.getElementById('enhancedImage');
+            const errorMessage = document.getElementById('errorMessage');
+            const canvasModal = document.getElementById('canvasModal');
+
+            loadingSpinner.classList.remove('hidden');
+            enhancedImage.classList.add('hidden');
+            errorMessage.textContent = '';
+
+            try {
+              const canvasElement = userCanvas.elt;
+              if (!canvasElement) {
+                throw new Error('Canvas not found');
+              }
+              const enhancedDataUrl = enhanceDoodle(canvasElement, false);
+              enhancedImage.src = enhancedDataUrl;
+              enhancedImage.classList.remove('hidden');
+              if (isMobile) {
+                canvasModal.style.display = 'none';
+                toolsDrawer.classList.remove('active');
+              }
+            } catch (err) {
+              console.error('Enhance error:', err.message);
+              errorMessage.textContent = `Error: ${err.message}`;
+            } finally {
+              loadingSpinner.classList.add('hidden');
+              enhanceButton.disabled = false;
+              enhanceButton.innerHTML = originalText;
+            }
+          });
+        };
+
+        setupEventListeners(isMobile ? 'mobile' : 'desktop');
       };
+    };
 
-      if (isMobile) {
-        setupEventListeners('modal');
-      } else {
-        setupEventListeners('');
+    const initDesktopCanvas = () => {
+      if (desktopP5Instance) {
+        desktopP5Instance.remove();
+      }
+      try {
+        desktopP5Instance = new p5(createDrawingSketch(false));
+      } catch (e) {
+        console.error('Error initializing desktop sketch:', e);
+        document.getElementById('errorMessage').textContent = 'Failed to initialize drawing: ' + e.message;
       }
     };
 
-    const initCanvas = () => {
-      if (p5Instance) {
-        p5Instance.remove();
+    const initMobileCanvas = () => {
+      if (mobileP5Instance) {
+        mobileP5Instance.remove();
       }
       try {
-        p5Instance = new p5(drawingSketch);
+        mobileP5Instance = new p5(createDrawingSketch(true));
       } catch (e) {
-        console.error('Error initializing sketch:', e);
+        console.error('Error initializing mobile sketch:', e);
         document.getElementById('errorMessage').textContent = 'Failed to initialize drawing: ' + e.message;
       }
     };
 
     openCanvasButton.addEventListener('click', () => {
       canvasModal.style.display = 'block';
-      if (isMobile && !userCanvas) {
-        initCanvas();
+      if (isMobile && !mobileCanvas) {
+        initMobileCanvas();
       }
     });
 
@@ -888,7 +951,7 @@
     });
 
     if (!isMobile) {
-      initCanvas();
+      initDesktopCanvas();
     }
 
     function enhanceDoodle(canvas, isRandom) {
@@ -979,8 +1042,8 @@
 
           if (glowToggle && edge && newData[idx + 3] > 0) {
             finalData[idx] = 255;
-            finalData[idx + 1] = 51;
-            finalData[idx + 2] = 102;
+            finalData[idx + 1] = 100;
+            finalData[idx + 2] = 150;
             finalData[idx + 3] = 200;
           } else if (edge && newData[idx + 3] > 0) {
             finalData[idx] = 43;
@@ -1001,48 +1064,6 @@
       return tempCanvas.toDataURL('image/png');
     }
 
-    const generateDoodle = () => {
-      const enhanceButton = isMobile ? document.getElementById('modalGenerateDoodle') : document.getElementById('generateDoodle');
-      const originalText = enhanceButton.innerHTML;
-      enhanceButton.disabled = true;
-      enhanceButton.innerHTML = '<i class="fas fa-magic text-[#ff3366]"></i> Enhancing...';
-      const loadingSpinner = document.getElementById('loadingSpinner');
-      const enhancedImage = document.getElementById('enhancedImage');
-      const errorMessage = document.getElementById('errorMessage');
-      const canvasModal = document.getElementById('canvasModal');
-
-      loadingSpinner.classList.remove('hidden');
-      enhancedImage.classList.add('hidden');
-      errorMessage.textContent = '';
-
-      try {
-        const canvasElement = userCanvas.elt;
-        if (!canvasElement) {
-          throw new Error('Canvas not found');
-        }
-        const enhancedDataUrl = enhanceDoodle(canvasElement, false);
-        enhancedImage.src = enhancedDataUrl;
-        enhancedImage.classList.remove('hidden');
-        canvasModal.style.display = 'none';
-        if (isMobile) {
-          toolsDrawer.classList.remove('active');
-        }
-      } catch (err) {
-        console.error('Enhance error:', err.message);
-        errorMessage.textContent = `Error: ${err.message}`;
-      } finally {
-        loadingSpinner.classList.add('hidden');
-        enhanceButton.disabled = false;
-        enhanceButton.innerHTML = originalText;
-      }
-    };
-
-    if (isMobile) {
-      document.getElementById('modalGenerateDoodle').addEventListener('click', generateDoodle);
-    } else {
-      document.getElementById('generateDoodle').addEventListener('click', generateDoodle);
-    }
-
     document.getElementById('randomEnhance').addEventListener('click', () => {
       const randomButton = document.getElementById('randomEnhance');
       const originalText = randomButton.innerHTML;
@@ -1057,7 +1078,7 @@
       errorMessage.textContent = '';
 
       try {
-        const canvasElement = userCanvas.elt;
+        const canvasElement = isMobile ? mobileCanvas.elt : desktopCanvas.elt;
         if (!canvasElement) {
           throw new Error('Canvas not found');
         }
@@ -1089,5 +1110,4 @@
     });
   });
   </script>
-</body>
-</html>
+</body></html>
