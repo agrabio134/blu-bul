@@ -455,7 +455,7 @@
         <i class="fas fa-spray-can text-[#ff3366]"></i>
         <label for="desktopBrushType" class="text-sm">Brush Type:</label>
         <select id="desktopBrushType" class="brush-type">
-          <option value="standard">Standard</option>
+          <option value="standard"></option>
           <option value="spray">Spray Paint</option>
           <option value="eraser">Eraser</option>
         </select>
@@ -586,7 +586,7 @@
           <i class="fas fa-spray-can text-[#ff3366]"></i>
           <label for="mobileBrushType" class="text-sm">Brush Type:</label>
           <select id="mobileBrushType" class="brush-type">
-            <option value="standard">Standard</option>
+            <option value="standard"></option>
             <option value="spray">Spray Paint</option>
             <option value="eraser">Eraser</option>
           </select>
@@ -618,6 +618,20 @@
   let mobileDrawHistory = [];
   let desktopP5Instance = null;
   let mobileP5Instance = null;
+  let isEnhancing = false;
+
+  // Debounce function to limit enhancement calls
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
 
   window.addEventListener('load', () => {
     const observer = new IntersectionObserver((entries) => {
@@ -862,6 +876,7 @@
             drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
             if (isMobile) mobileDrawHistory = drawHistory;
             else desktopDrawHistory = drawHistory;
+            updateEnhancedImage(); // Update preview after clear
           });
 
           document.getElementById(`${prefix}UndoCanvas`).addEventListener('click', () => {
@@ -870,42 +885,15 @@
               redrawCanvas();
               if (isMobile) mobileDrawHistory = drawHistory;
               else desktopDrawHistory = drawHistory;
+              updateEnhancedImage(); // Update preview after undo
             }
           });
 
           document.getElementById(`${prefix}GenerateDoodle`).addEventListener('click', () => {
-            const enhanceButton = document.getElementById(`${prefix}GenerateDoodle`);
-            const originalText = enhanceButton.innerHTML;
-            enhanceButton.disabled = true;
-            enhanceButton.innerHTML = '<i class="fas fa-magic text-[#ff3366]"></i> Enhancing...';
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const enhancedImage = document.getElementById('enhancedImage');
-            const errorMessage = document.getElementById('errorMessage');
-            const canvasModal = document.getElementById('canvasModal');
-
-            loadingSpinner.classList.remove('hidden');
-            enhancedImage.classList.add('hidden');
-            errorMessage.textContent = '';
-
-            try {
-              const canvasElement = userCanvas.elt;
-              if (!canvasElement) {
-                throw new Error('Canvas not found');
-              }
-              const enhancedDataUrl = enhanceDoodle(canvasElement, false);
-              enhancedImage.src = enhancedDataUrl;
-              enhancedImage.classList.remove('hidden');
-              if (isMobile) {
-                canvasModal.style.display = 'none';
-                toolsDrawer.classList.remove('active');
-              }
-            } catch (err) {
-              console.error('Enhance error:', err.message);
-              errorMessage.textContent = `Error: ${err.message}`;
-            } finally {
-              loadingSpinner.classList.add('hidden');
-              enhanceButton.disabled = false;
-              enhanceButton.innerHTML = originalText;
+            updateEnhancedImage(false);
+            if (isMobile) {
+              canvasModal.style.display = 'none';
+              toolsDrawer.classList.remove('active');
             }
           });
         };
@@ -1045,11 +1033,6 @@
             finalData[idx + 1] = 100;
             finalData[idx + 2] = 150;
             finalData[idx + 3] = 200;
-          } else if (edge && newData[idx + 3] > 0) {
-            finalData[idx] = 43;
-            finalData[idx + 1] = 43;
-            finalData[idx + 2] = 43;
-            finalData[idx + 3] = 255;
           } else {
             finalData[idx] = newData[idx];
             finalData[idx + 1] = newData[idx + 1];
@@ -1064,11 +1047,9 @@
       return tempCanvas.toDataURL('image/png');
     }
 
-    document.getElementById('randomEnhance').addEventListener('click', () => {
-      const randomButton = document.getElementById('randomEnhance');
-      const originalText = randomButton.innerHTML;
-      randomButton.disabled = true;
-      randomButton.innerHTML = '<i class="fas fa-dice text-[#ff3366]"></i> Randomizing...';
+    const updateEnhancedImage = debounce((isRandom = false) => {
+      if (isEnhancing) return;
+      isEnhancing = true;
       const loadingSpinner = document.getElementById('loadingSpinner');
       const enhancedImage = document.getElementById('enhancedImage');
       const errorMessage = document.getElementById('errorMessage');
@@ -1078,11 +1059,11 @@
       errorMessage.textContent = '';
 
       try {
-        const canvasElement = isMobile ? mobileCanvas.elt : desktopCanvas.elt;
+        const canvasElement = isMobile ? mobileCanvas?.elt : desktopCanvas?.elt;
         if (!canvasElement) {
           throw new Error('Canvas not found');
         }
-        const enhancedDataUrl = enhanceDoodle(canvasElement, true);
+        const enhancedDataUrl = enhanceDoodle(canvasElement, isRandom);
         enhancedImage.src = enhancedDataUrl;
         enhancedImage.classList.remove('hidden');
       } catch (err) {
@@ -1090,9 +1071,25 @@
         errorMessage.textContent = `Error: ${err.message}`;
       } finally {
         loadingSpinner.classList.add('hidden');
-        randomButton.disabled = false;
-        randomButton.innerHTML = originalText;
+        isEnhancing = false;
       }
+    }, 200);
+
+    // Setup real-time enhancement listeners
+    document.getElementById('sharpenLevel').addEventListener('input', () => updateEnhancedImage());
+    document.getElementById('brightnessLevel').addEventListener('input', () => updateEnhancedImage());
+    document.getElementById('contrastLevel').addEventListener('input', () => updateEnhancedImage());
+    document.getElementById('saturationLevel').addEventListener('input', () => updateEnhancedImage());
+    document.getElementById('glowToggle').addEventListener('change', () => updateEnhancedImage());
+
+    document.getElementById('randomEnhance').addEventListener('click', () => {
+      const randomButton = document.getElementById('randomEnhance');
+      const originalText = randomButton.innerHTML;
+      randomButton.disabled = true;
+      randomButton.innerHTML = '<i class="fas fa-dice text-[#ff3366]"></i> Randomizing...';
+      updateEnhancedImage(true);
+      randomButton.disabled = false;
+      randomButton.innerHTML = originalText;
     });
 
     document.getElementById('downloadPreview').addEventListener('click', () => {
@@ -1110,4 +1107,5 @@
     });
   });
   </script>
-</body></html>
+</body>
+</html>
