@@ -610,16 +610,16 @@
         drawHistory = [{ type: 'clear', color: fillBackground ? fillColor : 255 }];
 
         // Prevent scrolling only when touching inside the canvas
-        userCanvas.elt.addEventListener('touchmove', (e) => {
-          const touch = e.touches[0];
-          const rect = userCanvas.elt.getBoundingClientRect();
-          const touchX = touch.clientX - rect.left;
-          const touchY = touch.clientY - rect.top;
+        // userCanvas.elt.addEventListener('touchmove', (e) => {
+        //   const touch = e.touches[0];
+        //   const rect = userCanvas.elt.getBoundingClientRect();
+        //   const touchX = touch.clientX - rect.left;
+        //   const touchY = touch.clientY - rect.top;
 
-          if (touchX >= 0 && touchX <= p.width && touchY >= 0 && touchY <= p.height) {
-            e.preventDefault();
-          }
-        }, { passive: false });
+        //   if (touchX >= 0 && touchX <= p.width && touchY >= 0 && touchY <= p.height) {
+        //     e.preventDefault();
+        //   }
+        // }, { passive: false });
       };
 
       p.draw = () => {
